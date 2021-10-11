@@ -1,0 +1,7 @@
+t:=t+1;
+a[t]:=edit1.Text;
+
+if (skob=false) or (b[t-1]<>')')  then             
+edit1.Text:=floattostr(cos(strtofloat(edit1.Text)))
+else                                              
+edit1.Text:=floattostr(cos(strtofloat(rezul2(t))));

@@ -1,0 +1,8 @@
+ t:=t+1;
+a[t]:=edit1.Text;
+
+if (skob=false) or (b[t-1]<>')')  then              //zn1:=CosZR(strtozr(edit1.Text));
+edit1.Text:=floattostr(tan(strtofloat(edit1.Text)))
+else                                              //edit1.Text:=zrtostr(zn1);
+edit1.Text:=floattostr(tan(strtofloat(rezul2(t))));
+end;

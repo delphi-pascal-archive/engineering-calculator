@@ -1,0 +1,708 @@
+function Rezul2 (q:integer): string; ///Функция для Кнопок син кос тан арктан арккос лог натурлог
+var d,n,z:integer;
+begin
+
+repeat
+
+
+d:=0;
+z:=0;
+for i:=1 to q do
+if b[i]='(' then d:=i; //поиск скобок
+
+
+for i:=d to q do
+if b[i]=')' then
+begin
+ z:=i;
+break;
+end;
+
+
+
+
+b[d]:='0';         //удолениу скобок
+b[z]:='0';
+if ((z<>0) and (d<>0)) then begin
+//---------------выполнение действий хранящихся в скобках начало----------------
+for i:=d+1 to z-1 do
+begin
+if ((a[i]<>'|') and (b[i]='^')) then
+begin
+n:=i+1;
+while (a[n]='|')  do
+begin
+n:=n+1;
+end;
+zn1:=strtozr(a[i]);
+zn2:=strtozr(a[n]);
+zn2:=powerzr(zn1,zn2);
+a[n]:=floattostr(Zrtoreal(zn2));
+a[i]:='|';
+end;
+
+end;
+
+
+
+for i:=d+1 to z-1 do
+ begin
+if (a[i]<>'|') then
+begin
+case b[i] of
+
+'*': begin
+     n:=i+1;
+	while  (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+    zn2:=multzr(zn1,zn2);
+	a[n]:=Floattostr(Zrtoreal(zn2));
+     	a[i]:='|';
+     end;
+'/': begin
+  n:=i+1;
+	while (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+   if (a[n]<>'0') then
+    begin
+  zn2:=divzr(zn1,zn2);
+	a[n]:=Floattostr(ZRtoreal(zn2));
+	a[i]:='|';
+  end
+  else begin  rezul2:='Делить на нуль нельзя'; exit; end;
+     end;
+
+'mod': begin
+  n:=i+1;
+	while (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+     
+   if (a[n]<>'0') then
+    begin
+       
+	
+	 zn2:=divzr(zn1,zn2);
+	
+	 zn:=ZRToLongInt(zn2,-1);
+	zn2:=subzr(zn1,multzr(zn,zn2))
+	
+        a[n]:=Floattostr(ZRtoreal(zn2));
+	a[i]:='|';
+  end
+  else begin  rezul2:='Делить на нуль нельзя'; exit; end;
+     end;
+
+
+
+
+end;
+end;
+end;
+
+for i:=d+1 to z-1 do
+   begin
+if (a[i]<>'|') then
+begin
+case b[i] of
+
+'+': begin n:=i+1;
+	while  (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+    zn2:=sumzr(zn1,zn2);
+	a[n]:=Floattostr(ZRtoreal(zn2));
+     	a[i]:='|';
+     end;
+'-': begin n:=i+1;
+	while (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+    zn2:=subzr(zn1,zn2);
+	a[n]:=Floattostr(ZRtoReal(zn2));
+	a[i]:='|';
+     end;
+
+
+
+end;
+end;
+end;
+end;
+until d=0 ;
+
+//------------------конец выполнеия действий хранящихся в скобках------------
+
+rezul2:=a[t];
+end;
+
+function Rezul (q:integer) : string; // Функция для кнопки равно
+var z,d,n:integer;
+begin
+
+repeat
+
+
+d:=0;
+z:=0;
+for i:=1 to q do
+if b[i]='(' then d:=i; //поиск скобок
+
+
+for i:=d to q do
+if b[i]=')' then
+begin
+ z:=i;
+break;
+end;
+
+
+
+
+b[d]:='0';         //удолениу скобок
+b[z]:='0';
+if ((z<>0) and (d<>0)) then begin
+//---------------выполнение действий хранящихся в скобках начало----------------
+for i:=d+1 to z-1 do
+begin
+if ((a[i]<>'|') and (b[i]='^')) then
+begin
+n:=i+1;
+while (a[n]='|')  do
+begin
+n:=n+1;
+end;
+zn1:=strtozr(a[i]);
+zn2:=strtozr(a[n]);
+zn2:=powerzr(zn1,zn2);
+a[n]:=Floattostr(Zrtoreal(zn2));
+a[i]:='|';
+end;
+
+end;
+
+
+
+for i:=d+1 to z-1 do
+ begin
+if (a[i]<>'|') then
+begin
+case b[i] of
+
+'*': begin
+     n:=i+1;
+	while  (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+    zn2:=multzr(zn1,zn2);
+	a[n]:=Floattostr(Zrtoreal(zn2));
+     	a[i]:='|';
+     end;
+'/': begin
+  n:=i+1;
+	while (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+   if (a[n]<>'0') then
+    begin
+  zn2:=divzr(zn1,zn2);
+	a[n]:=Floattostr(ZRtoreal(zn2));
+	a[i]:='|';
+  end
+  else begin  rezul:='Делить на нуль нельзя'; exit; end;
+     end;
+
+
+
+end;
+end;
+end;
+
+for i:=d+1 to z-1 do
+   begin
+if (a[i]<>'|') then
+begin
+case b[i] of
+
+'+': begin n:=i+1;
+	while  (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+    zn2:=sumzr(zn1,zn2);
+	a[n]:=Floattostr(Zrtoreal(zn2));
+     	a[i]:='|';
+     end;
+'-': begin n:=i+1;
+	while (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+    zn2:=subzr(zn1,zn2);
+	a[n]:=Floattostr(Zrtoreal(zn2));
+	a[i]:='|';
+     end;
+
+
+
+end;
+end;
+end;
+end;
+until d=0 ;
+
+//------------------конец выполнеия действий хранящихся в скобках------------
+
+
+//-------------------начало выполнения действий стояших после скобок---------
+
+for i:=1 to q do
+begin
+if ((a[i]<>'|') and (b[i]='^')) then
+begin
+n:=i+1;
+while (a[n]='|')  do
+begin
+n:=n+1;
+end;
+zn1:=strtozr(a[i]);
+zn2:=strtozr(a[n]);
+zn2:=powerzr(zn1,zn2);
+a[n]:=Floattostr(Zrtoreal(zn2));
+a[i]:='|';
+end;
+
+end;
+
+
+
+
+
+
+for i:=1 to q do
+
+if (a[i]<>'|') then
+begin
+case b[i] of
+
+'*': begin
+n:=i+1;
+	while  (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+    zn2:=multzr(zn1,zn2);
+
+	a[n]:=FLoattostr(ZRtoreal(zn2));
+     	a[i]:='|';
+     end;
+'/': begin
+n:=i+1;
+	while (a[n]='|') do
+		begin
+		n:=n+1;
+		end;
+    if (a[n]<>'0') then
+    begin
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+    zn2:=divzr(zn1,zn2);
+   // zn2:= RefreshZR(zn2,);
+	a[n]:=Floattostr(Zrtoreal(Zn2));
+	a[i]:='|';
+  end else begin rezul:='Деление на нуль нельзя'; exit; end;
+     end;
+
+
+
+end;
+end;
+
+for i:=1 to q do
+
+if (a[i]<>'|') then
+begin
+case b[i] of
+
+'+': begin n:=i+1;
+	while  (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+    zn2:=sumzr(zn1,zn2);
+	a[n]:=Floattostr(Zrtoreal(zn2));
+     	a[i]:='|';
+     end;
+'-': begin n:=i+1;
+	while (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+    zn1:=strtozr(a[i]);
+    zn2:=strtozr(a[n]);
+    zn2:=subzr(zn1,zn2);
+	a[n]:=Floattostr(Zrtoreal(zn2));
+	a[i]:='|';
+     end;
+
+
+
+end;
+end;
+
+//--------конец выполнение децствий после скобок-----------------------------
+
+rezul:=a[t];
+
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+  
+ 
+
+       obrazec1:=length(zt);
+       obrazec2:=length(zt1);
+	if obrazec1>=obrazec2 then
+            begin
+            for r:=obrazec1 downto 1 do
+		begin
+		if (zt1[r]<>'0') and (zt1[r]<>'1') tnen zt1[r]:='0';
+                zt1[r]:=strtoint( zt[r])  and strtoint (zt1[r]);  
+		end;
+		end
+	else
+  begin
+            for r:=obrazec2 downto 1 do
+		begin
+		if (zt[r]<>'0') and (zt[r]<>'1') tnen zt[r]:='0';
+                zt1[r]:=strtoint( zt[r])  and strtoint (zt1[r]);  
+		end;
+         
+        
+
+        
+ 
+
+
+
+
+
+//------------------------------------------------------------------------------------
+
+
+'a': begin
+  n:=i+1;
+	while (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+  
+
+
+
+
+       
+        zt:='';
+        zt1:='';
+        zn1:=strtozr(a[i]);
+        zn1:=ZRToLongInt(zn1,-1);
+
+          while   (ComparisonZR(zn1,inttozr(0))<>0) do
+         
+            begin
+              zn2:=divzr(zn1,inttozr(2));
+              zn2:=ZRToLongInt(zn2,-1) ;
+              zn2:=multzr(zn2,inttozr(2));
+
+              zn2:= SubZR(zn1,zn2);
+
+              zt:=zrtostr(zn2)+zt;
+
+              zn1:=divzr(zn1,inttozr(2));
+              zn1:=ZRToLongInt(zn1,-1);
+         
+            end;
+          
+
+        zn1:=strtozr(a[n]);
+        zn1:=ZRToLongInt(zn1,-1);
+
+          while   (ComparisonZR(zn1,inttozr(0))<>0) do
+         
+            begin
+              zn2:=divzr(zn1,inttozr(2));
+              zn2:=ZRToLongInt(zn2,-1) ;
+              zn2:=multzr(zn2,inttozr(2));
+
+              zn2:= SubZR(zn1,zn2);
+
+              zt1:=zrtostr(zn2)+zt1;
+
+              zn1:=divzr(zn1,inttozr(2));
+              zn1:=ZRToLongInt(zn1,-1);
+         
+            end;
+         
+
+
+
+       obrazec1:=length(zt);
+       obrazec2:=length(zt1);
+	if obrazec1>=obrazec2 then
+            begin
+            for r:=obrazec1 downto 1 do
+		begin
+		if (zt1[r]<>'0') and (zt1[r]<>'1') tnen zt1[r]:='0';
+                zt1[r]:=strtoint( zt[r])  and strtoint (zt1[r]);  
+		end;
+		end
+	else
+  begin
+            for r:=obrazec2 downto 1 do
+		begin
+		if (zt[r]<>'0') and (zt[r]<>'1') tnen zt[r]:='0';
+                zt1[r]:=strtoint( zt[r])  and strtoint (zt1[r]);  
+		end;
+         
+
+  end;
+
+
+        p:=1;j:=0;
+        zn2:=inttozr(0);
+        zn1:=inttozr(1);
+
+       for i:=length(zr1) downto 1 do
+           begin
+           zn2:=sumzr(zn2,MultZR(zn1,strtozr(zr1[i])));
+           zn1:=multzr(zn1,inttozr(2));
+
+           end;
+           
+  
+
+        a[n]:=floattostr(zrtoreal(zn2));
+	
+	a[i]:='|';
+
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------------
+
+
+'a': begin
+  n:=i+1;
+	while (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+  
+
+
+
+
+        zt2:='';
+        zt:='';
+        zt1:='';
+        zn1:=strtozr(a[i]);
+        zn1:=ZRToLongInt(zn1,-1);
+
+          while   (ComparisonZR(zn1,inttozr(0))<>0) do
+         
+            begin
+              zn2:=divzr(zn1,inttozr(2));
+              zn2:=ZRToLongInt(zn2,-1) ;
+              zn2:=multzr(zn2,inttozr(2));
+
+              zn2:= SubZR(zn1,zn2);
+
+              zt:=zrtostr(zn2)+zt;
+
+              zn1:=divzr(zn1,inttozr(2));
+              zn1:=ZRToLongInt(zn1,-1);
+         
+            end;
+          
+
+        zn1:=strtozr(a[n]);
+        zn1:=ZRToLongInt(zn1,-1);
+
+          while   (ComparisonZR(zn1,inttozr(0))<>0) do
+         
+            begin
+              zn2:=divzr(zn1,inttozr(2));
+              zn2:=ZRToLongInt(zn2,-1) ;
+              zn2:=multzr(zn2,inttozr(2));
+
+              zn2:= SubZR(zn1,zn2);
+
+              zt1:=zrtostr(zn2)+zt1;
+
+              zn1:=divzr(zn1,inttozr(2));
+              zn1:=ZRToLongInt(zn1,-1);
+         
+            end;
+         
+
+
+
+       obrazec1:=length(zt);
+       obrazec2:=length(zt1);
+	if obrazec1>=obrazec2 then
+            begin
+            for r:=trunc(obrazec1) downto 1 do
+		begin
+		if (zt1[r]<>'0') and (zt1[r]<>'1') then zt1[r]:='0';
+                zt2:=zt2+ inttostr( strtoint( zt[r])  and strtoint (zt1[r]));
+		end;
+		end
+	else
+  begin
+            for r:=trunc(obrazec2) downto 1 do
+		begin
+		if (zt[r]<>'0') and (zt[r]<>'1') then zt[r]:='0';
+        zt2:=zt2+ inttostr( strtoint( zt[r])  and strtoint (zt1[r]));           
+		end;
+         
+
+  end;
+
+
+        p:=1;j:=0;
+        zn2:=inttozr(0);
+        zn1:=inttozr(1);
+
+       for r:=length(zt2) downto 1 do
+           begin
+           zn2:=sumzr(zn2,MultZR(zn1,strtozr(zt2[i])));
+           zn1:=multzr(zn1,inttozr(2));
+
+           end;
+           
+  
+
+        a[n]:=floattostr(zrtoreal(zn2));
+	
+	a[i]:='|';
+
+end;
+//-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+if (obrazec1>obrazec2) then 
+begin
+obrazec1:=obrazec1-obrazec2;
+for r:=1 to  obrazec1 do
+zt1:='0'+zt1;
+end
+else
+begin
+obrazec1:=obrazec2-obrazec1;
+for r:=1 to  obrazec1 do
+zt:='0'+zt;
+
+end;
+
+
+
+
+
+
+
+
+
+

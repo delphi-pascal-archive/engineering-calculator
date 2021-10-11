@@ -1,0 +1,7 @@
+skob:=true;
+t:=t+1;
+
+b[t]:='(';
+
+sk:=sk+1;
+panel3.Caption:='(='+inttostr(sk);

@@ -1,0 +1,12 @@
+t:=t+1;
+b[t]:=')';
+
+if (sk<>0) then
+begin
+sk:=sk-1;
+panel3.Caption:='(='+inttostr(sk);
+end
+else begin panel3.Caption:=''; MessageBeep(0);
+end;
+
+if (sk=0) then panel3.Caption:='';

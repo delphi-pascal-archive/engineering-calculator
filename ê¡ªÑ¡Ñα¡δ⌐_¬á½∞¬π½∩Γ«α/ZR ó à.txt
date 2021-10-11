@@ -1,0 +1,18 @@
+function zr_e (stroka: string): string;
+var n:integer;
+begin
+for n:=1 to length(stroka) do
+if stroka[n]='+' then
+  begin
+  stroka[n-1]:='e';
+  delete(stroka,n,1);
+  end;
+
+for n:=1 to length(stroka) do
+if stroka[n]='-' then
+  begin
+  stroka[n-1]:='e';
+  end;
+
+  zr_e:=stroka;
+end;

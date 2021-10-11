@@ -1,0 +1,2 @@
+zn1:=FactorZr(strtoint(edit1.Text));
+edit1.Text:=Floattostr(Zrtoreal(zn1));

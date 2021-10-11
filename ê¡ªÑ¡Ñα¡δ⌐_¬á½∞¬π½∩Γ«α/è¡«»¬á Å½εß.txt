@@ -1,0 +1,14 @@
+var n,d,z:integer;
+begin
+if  (glob_check=true) then t:=t-1;
+t:=t+1;
+a[t]:=edit1.Text;
+b[t]:='+';
+glob_check:=true;
+
+//-----------------------------------------
+
+if ((b[2]<>'0') and (skob=false)) then
+edit1.Text:=rezul(t-1);
+
+end;

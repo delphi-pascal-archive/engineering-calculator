@@ -1,0 +1,15 @@
+ var z,n: integer;
+begin
+   if (Sk=0) then begin
+   if  (glob_check=true) then t:=t-1;
+  t:=t+1;
+  a[t]:=edit1.Text;             //Присваевает значение массиву элементу
+  if  (glob_check=true) then t:=t-1;  // храняшему в поле мемо
+
+   edit1.text:=rezul(t);
+
+  glob_check:=true;
+  end
+
+  else MessageBeep(0);
+end;

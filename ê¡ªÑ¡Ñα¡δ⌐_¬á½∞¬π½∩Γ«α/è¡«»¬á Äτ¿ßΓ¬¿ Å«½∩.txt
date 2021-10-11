@@ -1,0 +1,13 @@
+sk:=0;
+panel3.Caption:='';//Для скобок
+
+edit1.Text:='0';
+glob_check:=True;//Для поля 
+
+t:=0;
+
+for i:=1 to 1000 do // Очищает массив
+begin
+a[i]:='|';
+b[i]:='0';
+end;

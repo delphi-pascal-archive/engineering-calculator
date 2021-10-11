@@ -1,0 +1,53 @@
+'x': begin
+  n:=i+1;
+	while (a[n]='|') do
+		begin
+		 n:=n+1;
+		end;
+
+
+
+
+
+       
+       
+        zn1:=strtozr(a[n]);
+        zn1:=ZRToLongInt(zn1,-1);
+        zn2:=strtozr(a[i]);
+        zn:=inttozr(0);
+
+          while   (ComparisonZR(zn,zn1)<>0) do
+         
+            begin
+              zn2:=divzr(zn1,inttozr(2));
+              zn2:=ZRToLongInt(zn2,-1) ;
+              zn2:=multzr(zn2,inttozr(2));
+
+              zn2:= SubZR(zn1,zn2);
+
+              zt:=zrtostr(zn2)+zt;
+
+              zn1:=divzr(zn1,inttozr(2));
+              zn1:=ZRToLongInt(zn1,-1);
+         
+            end;
+          
+
+        zn1:=strtozr(a[n]);
+        zn1:=ZRToLongInt(zn1,-1);
+
+          while   (ComparisonZR(zn1,inttozr(0))<>0) do
+         
+            begin
+              zn2:=divzr(zn1,inttozr(2));
+              zn2:=ZRToLongInt(zn2,-1) ;
+              zn2:=multzr(zn2,inttozr(2));
+
+              zn2:= SubZR(zn1,zn2);
+
+              zt1:=zrtostr(zn2)+zt1;
+
+              zn1:=divzr(zn1,inttozr(2));
+              zn1:=ZRToLongInt(zn1,-1);
+         
+            end;
